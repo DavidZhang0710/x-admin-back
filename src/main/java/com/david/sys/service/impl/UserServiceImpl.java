@@ -1,5 +1,6 @@
 package com.david.sys.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.david.sys.entity.User;
 import com.david.sys.mapper.UserMapper;
@@ -42,5 +43,25 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
             return map;
         }
         return null;
+    }
+
+    @Override
+    public Map<String, Object> getUserInfo(String token) {
+        Object result = redisTemplate.opsForValue().get(token);
+        if(result != null) {
+            User loginUser = JSON.parseObject(JSON.toJSONString(result), User.class);
+            Map<String, Object> map = new HashMap<>();
+            map.put("name", loginUser.getUsername());
+            map.put("avatar", loginUser.getAvatar());
+            //查询角色
+            map.put("roles", this.baseMapper.getRoleNameByUserId(loginUser.getId()));
+            return map;
+        }
+        return null;
+    }
+
+    @Override
+    public void logout(String token) {
+        redisTemplate.delete(token);
     }
 }

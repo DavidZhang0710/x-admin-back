@@ -39,4 +39,19 @@ public class UserController {
         }
         return Result.fail(20002, "用户名或密码错误");
     }
+
+    @GetMapping("/info")
+    public Result<Map<String, Object>> login(@RequestParam("token") String token) {
+        Map<String, Object> data = userService.getUserInfo(token);
+        if(data != null) {
+            return Result.success(data);
+        }
+        return Result.fail(20003, "token无效");
+    }
+
+    @PostMapping("/logout")
+    public Result<?> logout(@RequestHeader("X-Token") String token) {
+        userService.logout(token);
+        return Result.success();
+    }
 }
