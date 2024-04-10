@@ -8,6 +8,7 @@ import com.david.sys.service.IUserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -28,13 +29,16 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
     @Autowired
     RedisTemplate redisTemplate;
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
+
     @Override
     public Map<String, Object> login(User user) {
         LambdaQueryWrapper<User> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(User::getUsername, user.getUsername());
-        wrapper.eq(User::getPassword, user.getPassword());
         User loginUser = this.baseMapper.selectOne(wrapper);
-        if(loginUser != null) {
+        if(loginUser != null && passwordEncoder.matches(user.getPassword(), loginUser.getPassword())) {
             String key = "user:" + UUID.randomUUID();
             loginUser.setPassword(null);
             redisTemplate.opsForValue().set(key, loginUser, 30, TimeUnit.MINUTES);

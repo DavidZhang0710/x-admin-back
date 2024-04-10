@@ -6,6 +6,7 @@ import com.david.common.vo.Result;
 import com.david.sys.entity.User;
 import com.david.sys.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,6 +27,9 @@ import java.util.Map;
 public class UserController {
     @Autowired
     IUserService userService;
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     @GetMapping("/all")
     public Result<List<User>> getAll() {
@@ -78,7 +82,27 @@ public class UserController {
 
     @PostMapping
     public Result<?> addUser(@RequestBody User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         userService.save(user);
         return Result.success("Add new user success!!!");
+    }
+
+    @PutMapping
+    public Result<?> updateUser(@RequestBody User user) {
+        user.setPassword(null);
+        userService.updateById(user);
+        return Result.success("Update user success!!!");
+    }
+
+    @GetMapping("/{id}")
+    public Result<?> getUserById(@PathVariable("id") Integer id) {
+        User user = userService.getById(id);
+        return Result.success(user);
+    }
+
+    @DeleteMapping("/{id}")
+    public Result<?> deleteUser(@PathVariable("id") Integer id) {
+        userService.removeById(id);
+        return Result.success("Delete success!!!");
     }
 }
