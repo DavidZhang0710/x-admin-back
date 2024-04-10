@@ -3,6 +3,7 @@ package com.david.sys.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+
 import java.io.Serializable;
 
 /**
@@ -27,7 +28,7 @@ public class User implements Serializable {
 
     private String email;
 
-    private String phone;
+    private String telephone;
 
     private Integer status;
 
@@ -67,12 +68,12 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getTelephone() {
+        return telephone;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
 
     public Integer getStatus() {
@@ -106,7 +107,7 @@ public class User implements Serializable {
             ", username = " + username +
             ", password = " + password +
             ", email = " + email +
-            ", phone = " + phone +
+            ", telephone = " + telephone +
             ", status = " + status +
             ", avatar = " + avatar +
             ", deleted = " + deleted +
