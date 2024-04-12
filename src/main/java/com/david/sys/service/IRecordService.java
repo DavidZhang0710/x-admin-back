@@ -1,6 +1,6 @@
 package com.david.sys.service;
 
-import com.david.sys.entity.Menu;
+import com.david.sys.entity.Record;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author david
- * @since 2024-03-25
+ * @since 2024-04-12
  */
-public interface IMenuService extends IService<Menu> {
+public interface IRecordService extends IService<Record> {
 
 }

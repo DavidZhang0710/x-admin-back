@@ -4,7 +4,7 @@
     <select id = "getRoleNameByUserId" parameterType="Integer" resultType="String">
         SELECT
             b.`role_name`
-        FROM x_user_role a, x_role b
+        FROM p_user_role a, p_role b
         WHERE
             a.role_id = b.`role_id`
             AND a.user_id = #{userId};

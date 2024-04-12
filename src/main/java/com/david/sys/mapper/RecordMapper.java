@@ -1,6 +1,6 @@
 package com.david.sys.mapper;
 
-import com.david.sys.entity.UserRole;
+import com.david.sys.entity.Record;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author david
- * @since 2024-03-25
+ * @since 2024-04-12
  */
-public interface UserRoleMapper extends BaseMapper<UserRole> {
+public interface RecordMapper extends BaseMapper<Record> {
 
 }

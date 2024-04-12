@@ -14,7 +14,7 @@ import java.io.Serializable;
  * @author david
  * @since 2024-03-25
  */
-@TableName("x_user")
+@TableName("p_user")
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;

@@ -10,12 +10,12 @@ import java.util.Collections;
 
 public class CodeGenerator {
     public static void main(String[] args) {
-        String url = "jdbc:mysql://localhost:3306/xdb?serveTimezone=GMT%2B8";
+        String url = "jdbc:mysql://localhost:3306/project?serveTimezone=GMT%2B8";
         String username = "root";
         String password = "root";
         String moduleName = "sys";
         String mapperLocation = "C:\\Users\\RefRain\\IdeaProjects\\x-admin\\src\\main\\resources\\mapper\\" + moduleName;
-        String tables = "x_user,x_role,x_menu,x_user_role,x_role_menu";
+        String tables = "p_user,p_record";
         FastAutoGenerator.create(url, username, password)
                 .globalConfig(builder -> {
                     builder.author("david") // 设置作者
@@ -39,7 +39,7 @@ public class CodeGenerator {
                 })
                 .strategyConfig(builder -> {
                     builder.addInclude(tables) // 设置需要生成的表名
-                            .addTablePrefix("x_"); // 设置过滤表前缀
+                            .addTablePrefix("p_"); // 设置过滤表前缀
                 })
                 .templateEngine(new FreemarkerTemplateEngine()) // 使用Freemarker引擎模板，默认的是Velocity引擎模板
                 .execute();
