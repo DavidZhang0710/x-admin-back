@@ -1,40 +1,44 @@
 # Admin System Front-end
 
-Admin System Back-end
+Admin System Back-end.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+Software/Package version this project used:
 
 ```
-Give examples
+JDK == 1.8
+SpringBoot == 2.7.6
+Maven == 4.0.0
+Redis == 3.2.100
+MySQL == 5.7.44
 ```
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+Clone the project and open it with IDEA
 
 ```
-Give the example
+# clone the project
+git clone https://github.com/DavidZhang0710/x-admin-web.git
 ```
 
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
+Here you have a project ready to run.
 
 ## Running
 
-Explain how to run the automated tests for this system
+First you need to set up the configuration in ```src\main\resources\application.yml```, and make sure the ports of database or Redis are yours.
+
+Then you can use IDEA to run the project.
+
+## Further Applications
+
+I also develop a complete system based on this back-end project and [a front-end project](https://github.com/DavidZhang0710/x-admin-web).
+For more information, see in the branch [project](https://github.com/DavidZhang0710/x-admin-back/tree/project).
 
 
 ## Built With
