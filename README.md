@@ -6,7 +6,7 @@ The Traffic Flow Recognition System is build up with three module. One is this B
 
 The framework and workflow diagram are as shown in the followed figure.
 
-![Project Diagram](project-diagram.png)
+<img src="project-diagram.png" alt="Project Diagram" width="400" height="300">
 
 ## Getting Started
 
