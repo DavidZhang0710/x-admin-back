@@ -1,6 +1,7 @@
-# Admin System Back-end (基于视觉认知的交通流量自动识别方法的研究与实现)
+# Traffic Flow Recognition System Back-end
 
-Admin System Back-end.
+The Back-end of a Traffic Flow Recognition System.
+The Traffic Flow Recognition System is build up with three module. One is this Back-end, a web [Front-end](https://github.com/DavidZhang0710/x-admin-web/tree/project), and a Flask Back-end to provide algorithm API.
 
 ## Getting Started
 
@@ -24,7 +25,7 @@ Clone the project and open it with IDEA
 
 ```
 # clone the project
-git clone https://github.com/DavidZhang0710/x-admin-web.git
+git clone -b project https://github.com/DavidZhang0710/x-admin-web.git
 ```
 
 Here you have a project ready to run.
@@ -34,12 +35,6 @@ Here you have a project ready to run.
 First you need to set up the configuration in ```src\main\resources\application.yml```, and make sure the ports of database or Redis are yours.
 
 Then you can use IDEA to run the project.
-
-## Further Applications
-
-I also develop a complete system based on this back-end project and [a front-end project](https://github.com/DavidZhang0710/x-admin-web).
-For more information, see in the branch [project](https://github.com/DavidZhang0710/x-admin-back/tree/project).
-
 
 ## Built With
 * [Spring Boot](https://spring.io/projects/spring-boot) - The back-end framework used
